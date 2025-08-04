@@ -1,0 +1,43 @@
+[build-system]
+requires = ["flit_core >= 3.12.0, <4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "agent-basil"
+version = "0.1.0"
+description = "An AI Agent taking care of your basil plant."
+authors = [ {name = "Dominik Reiner", email = "dominik-reiner@web.de"}]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = ["langgraph>=0.6.3,<0.7", "pydantic>=2.11.7,<3", "langchain-google-genai>=2.1.9,<3", "fastmcp>=2.11.1,<3", "langchain-core>=0.3.72,<0.4", "pydantic-settings>=2.10.1,<3", "dotenv>=0.9.9,<0.10", "loguru>=0.7.3,<0.8"]
+
+[project.optional-dependencies]
+test = ["flake8", "isort", "black", "pytest"]
+
+[tool.pixi.workspace]
+channels = ["conda-forge"]
+platforms = ["osx-arm64", "linux-64"]
+
+[tool.pixi.pypi-dependencies]
+agent-basil = { path = ".", editable = true }
+
+[tool.pixi.tasks]
+flake8 = "flake8 agent_basil tests"
+isort = "isort agent_basil"
+black = "black agent_basil"
+
+[tool.pixi.tasks.lint]
+depends-on = [
+    { task = "flake8", environment = "test" },
+    { task = "isort", environment = "test" },
+    { task = "black", environment = "test" }
+]
+
+[tool.pixi.dependencies]
+python = "3.12.*"
+pip = ">=25.2,<26"
+
+[tool.pixi.environments]
+default = {features = [], solve-group = "default"}
+test = {features = ["test"], solve-group = "default"}
