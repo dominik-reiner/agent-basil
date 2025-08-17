@@ -1,0 +1,10 @@
+.env
+
+.DS_Store
+
+# Python
+__pycache__/
+
+# pixi environments
+.pixi
+*.egg-info
