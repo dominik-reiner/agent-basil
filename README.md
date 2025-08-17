@@ -100,4 +100,4 @@ This cycle allows the agent to autonomously monitor and care for the basil plant
 
 This project is licensed under the **MIT License**. For more information, please see the [LICENSE](LICENSE) file.
 
-This project uses various third-party libraries. A list of these libraries and their respective license notices can be found in the [NOTICE](NOTICE.md) file.
+This project uses various third-party libraries. A list of these libraries and their respective license notices can be found in the [NOTICE](NOTICE) file.
