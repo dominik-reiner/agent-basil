@@ -95,3 +95,9 @@ The agent's logic is built around a state machine powered by LangGraph. Here's a
     *   **Termination**: The agent's turn ends when it determines no further action is required, waiting for the next invocation.
 
 This cycle allows the agent to autonomously monitor and care for the basil plant, combining visual analysis with sensor data to make informed decisions.
+
+## License
+
+This project is licensed under the **MIT License**. For more information, please see the [LICENSE](LICENSE) file.
+
+This project uses various third-party libraries. A list of these libraries and their respective license notices can be found in the [NOTICE](NOTICE.md) file.
