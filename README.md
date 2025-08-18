@@ -2,7 +2,7 @@
 
 An experimental AI agent taking care of a basil plant.
 
-![Agent Basil](logo.png)
+![Agent Basil](static/logo.png)
 Image created with Google Gemini.
 
 ## About The Project
@@ -13,7 +13,7 @@ This project is an experiment to create an AI agent that can take care of a basi
 
 *   [LangGraph](https://github.com/langchain-ai/langgraph)
 *   [FastMCP](https://github.com/jlowin/fastmcp)
-*   [Google Gemini](https://ai.google.dev/)
+*   Google Gemini
 
 ## Getting Started
 
@@ -40,8 +40,8 @@ To get a local copy up and running follow these simple steps.
 - Stick the soil moisture sensor into the soil of the plant.
 - Attach the water pump to the water reservoir and stick the tube into the soil of the plant.
 
-![Agent Basil Setup](setup.jpg)
-![Agent Basil Cam Setup](setup_cam.jpg)
+![Agent Basil Setup](static/setup.jpg)
+![Agent Basil Cam Setup](static/setup_cam.jpg)
 
 ### Installation
 
@@ -76,7 +76,7 @@ or determine that it is done for now.
 
 ## How It Works
 
-![Agent Basil Architecture](agent_graph.png)
+![Agent Basil Architecture](static/agent_graph.png)
 
 The agent's logic is built around a state machine powered by LangGraph. Here's a step-by-step breakdown of the process:
 
