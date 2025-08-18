@@ -26,7 +26,13 @@ def send_task_to_human(message: str) -> str:
 
     DON'T ask the human to 'investigate the plant' he cannot do that
     as he will likely make a mistake and harm the plant.
-    He can only do very specific tasks that you give him.
+    He also cannot 'check the plant health',
+    'check the plant for pests', or 'check the plant for nutrient deficiencies'
+    or anything similar.
+
+    You should rather task the human to do something which you think MIGHT help.
+    You can just observe how the plant reacts so there is no need to investigate
+    the plant beforehand and to be sure. Just do what is most likely to help.
     """
     return "Task sent to human caretaker."
 
