@@ -9,6 +9,12 @@ Image created with Google Gemini.
 
 This project is an experiment to create an AI agent that can take care of a basil plant. The agent uses a combination of AI technologies to monitor the plant's health and provide it with the care it needs.
 
+### Features
+
+*   **Conversation History**: Saves all interactions to `messages.json` to maintain context between sessions.
+*   **Dynamic Hardware Tools**: Automatically generates tools for plant care hardware (camera, sensors, pump) from an OpenAPI spec.
+*   **Multi-modal Analysis**: Combines camera images with sensor data to make informed decisions.
+
 ### Built With
 
 *   [LangGraph](https://github.com/langchain-ai/langgraph)
