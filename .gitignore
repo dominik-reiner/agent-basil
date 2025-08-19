@@ -2,6 +2,8 @@
 
 .DS_Store
 
+messages.json
+
 # Python
 __pycache__/
 
