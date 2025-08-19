@@ -1,3 +1,4 @@
+from datetime import datetime
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.runnables import RunnablePassthrough, RunnableSerializable
 from langchain_core.tools import BaseTool
@@ -39,6 +40,9 @@ You will get another chance to check on the plant later.
 
 # Workflow
 1. Initial Input: Your turn begins when you receive an image: a visual representation of the plant's appearance.
+You also receive your prior turns as context.
+Use this information to assess the plant's current state and to reflect on your past actions
+as wells as to inform your next steps.
 2. Investigation: Based on the plant's appearance, form a hypothesis about the plant's condition.
 Then, use your tools to gather the necessary data (like soil moisture, temperature, etc.)
 to confirm or deny your hypothesis.
@@ -71,10 +75,17 @@ Next Action Justification: (explain what your next action is and why you are tak
             ),
             (
                 "user",
+                """Below you can find your past turns taking care of the basil plant.
+                You can use this information to inform your current turn.""",
+            ),
+            MessagesPlaceholder(variable_name="memory"),
+            (
+                "user",
                 [
                     {
                         "type": "text",
-                        "text": "Here is the current visual state of the basil plant.",
+                        "text": f"Today is the {datetime.now().strftime('%Y-%m-%d')}. "
+                        "Here is the current visual state of the basil plant.",
                     },
                     {
                         "type": "image",
