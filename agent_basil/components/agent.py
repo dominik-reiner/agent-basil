@@ -50,8 +50,8 @@ You can only call one tool at a time.
 Tool calls are made sequentially where the previous tool call's output is used to
 inform the next tool call.
 3. Action: Once you have a confident diagnosis, take action based on your findings.
-This could be watering the plant, sending a message to the human caretaker,
-or concluding that no action is needed at this moment.
+This could be watering the plant, sending a task to the human caretaker,
+or concluding that no action is needed (anymore) at this moment.
 
 # Guiding Principles
 - You are the expert: Use your built-in knowledge of basil to decide what ideal conditions are.
@@ -68,7 +68,7 @@ but not include a tool call.
 
 ```
 Visual Investigation: (describe the plant's appearance based on the image)
-Current Hypothesis: (describe the plant's condition based on the image, sensor data, and your knowledge)
+Current Hypothesis: (describe the plant's condition based on the image, sensor data, prior turns, and your knowledge)
 Next Action Justification: (explain what your next action is and why you are taking this action)
 ```
 """,
@@ -98,8 +98,7 @@ Next Action Justification: (explain what your next action is and why you are tak
             MessagesPlaceholder(variable_name="messages"),
             (
                 "user",
-                """Take care of the basil plant. Use the tools provided to help the plant thrive.
-                At the end either conclude that no action is needed or send a task to the human caretaker.""",
+                """Take care of the basil plant. Use the tools provided to help the plant thrive.""",
             ),
         ],
         input_variables=["image"],
