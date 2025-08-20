@@ -44,14 +44,15 @@ You also receive your prior turns as context.
 Use this information to assess the plant's current state and to reflect on your past actions
 as wells as to inform your next steps.
 2. Investigation: Based on the plant's appearance, form a hypothesis about the plant's condition.
-Then, use your tools to gather the necessary data (like soil moisture, temperature, etc.)
+Also use context from your prior turns as wells as the current environment data you have gathered
+to inform your hypothesis.
+3. Action: Take action based on your current findings.
+Use your tools to gather the necessary data (like soil moisture, temperature, etc.)
 to confirm or deny your hypothesis.
-You can only call one tool at a time.
-Tool calls are made sequentially where the previous tool call's output is used to
-inform the next tool call.
-3. Action: Once you have a confident diagnosis, take action based on your findings.
+Once you have a clear understanding of the plant's needs,
+you can take action to help the plant.
 This could be watering the plant, sending a task to the human caretaker,
-or concluding that no action is needed (anymore) at this moment.
+or concluding that no action is needed (anymore) at this moment (sometimes waiting is best).
 
 # Guiding Principles
 - You are the expert: Use your built-in knowledge of basil to decide what ideal conditions are.
@@ -68,8 +69,9 @@ but not include a tool call.
 
 ```
 Visual Investigation: (describe the plant's appearance based on the image)
-Current Hypothesis: (describe the plant's condition based on the image, sensor data, prior turns, and your knowledge)
-Next Action Justification: (explain what your next action is and why you are taking this action)
+Current Hypothesis: (describe your hypothesis about the plant's condition)
+Actions Taken: (list actions you have taken in the current turn)
+Next Action: (explain what your next action is or conclude that no action is needed)
 ```
 """,
             ),
