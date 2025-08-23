@@ -11,6 +11,8 @@ def create_agent_basil(
     tools: list[BaseTool], llm: ChatGoogleGenerativeAI
 ) -> RunnableSerializable:
     async def agent_image(state: AgentState) -> str:
+        if state["image"] is not None:
+            return state["image"]
         img_tool = next((tool for tool in tools if tool.name == "capture_image"), None)
         if img_tool is not None:
             response = await img_tool.ainvoke({})
@@ -106,12 +108,12 @@ Next Action: (explain what your next action is or conclude that no action is nee
         input_variables=["image"],
     )
 
-    agent_chain = (
-        RunnablePassthrough.assign(image=agent_image)  # type: ignore
-        | prompt
-        | llm.bind_tools([tool for tool in tools if tool.name != "capture_image"])
-        | {
-            "messages": lambda x: [x],
-        }
-    )
+    agent_chain = RunnablePassthrough.assign(image=agent_image) | {  # type: ignore
+        "messages": (
+            prompt
+            | llm.bind_tools([tool for tool in tools if tool.name != "capture_image"])
+            | RunnableLambda(lambda x: [x])
+        ),
+        "image": lambda x: x["image"],
+    }
     return agent_chain

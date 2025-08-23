@@ -27,10 +27,16 @@ async def start_agent_basil():
     )
     llm = get_llm()
     agent = create_agent_graph(tools, llm)
-    input = {"memory": load_messages()}
+    input = {"memory": load_messages(), "image": None}
     final_message = None
     async for event in agent.astream(input=input, stream_mode="updates"):
-        print(event)
+        if "agent" in event and "messages" in event["agent"]:
+            print("Agent:", event["agent"]["messages"][0].content)
+            if event["agent"]["messages"][0].tool_calls:
+                for tool_call in event["agent"]["messages"][0].tool_calls:
+                    print("Tool Call:", tool_call)
+        elif "tools" in event:
+            print("Tool Message:", event["tools"])
         final_message = event
     if final_message:
         save_message("assistant", final_message["agent"]["messages"][0].content)
