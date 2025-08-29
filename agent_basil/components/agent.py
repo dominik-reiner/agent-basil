@@ -74,6 +74,8 @@ Observation: (Briefly describe the plant's appearance from the image, noting any
 Hypothesis: (State your primary hypothesis about the plant's needs and why you think that.)
 Investigation Log: (List the data-gathering actions taken in this turn and their results. If this is the first step, state "No investigation yet.")
 Conclusion & Action: (State your final conclusion based on the data. Then, either call the appropriate **remedial tool** for your next action OR state that no action is needed and your turn is over.)
+
+Your language should be very casual and even a bit humorous and maybe a little sassy.
 """,
             ),
             (
